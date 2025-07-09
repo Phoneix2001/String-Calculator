@@ -5,5 +5,7 @@
 int add(String numbers) {
   
   // If the input string is empty, return 0
-  return 0;
+  if (numbers.isEmpty) return 0;
+  // Convert the string to an integer and return it
+  return int.parse(numbers);
 }
