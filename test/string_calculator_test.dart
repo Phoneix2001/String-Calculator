@@ -34,6 +34,12 @@ void main() {
     test('supports custom delimiter', () {
       expect(add('//;\n1;2'), 3);
     });
-    
+
+    test('throws exception for negative numbers', () {
+      expect(
+          () => add('1,-2'),
+          throwsA(predicate((e) =>
+              e.toString() == 'Exception: Negative numbers not allowed: -2')));
+    });
   });
 }

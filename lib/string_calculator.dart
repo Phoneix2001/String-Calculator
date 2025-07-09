@@ -6,7 +6,7 @@ int add(String numbers) {
   
   // If the input string is empty, return 0
   if (numbers.isEmpty) return 0;
-  
+
   /// Parses the input string to determine the delimiter for splitting numbers.
   /// If a custom delimiter is specified at the start of the string using the
   /// syntax `//<delimiter>\n`, it extracts and uses that delimiter. Otherwise,
@@ -23,5 +23,11 @@ int add(String numbers) {
   final cleaned = numbers.replaceAll('\n', delimiter);
   // split by commas and parse the numbers
   final parts = cleaned.split(delimiter);
-  return parts.map(int.parse).reduce((a, b) => a + b);
+  final nums = parts.map(int.parse).toList();
+  final negatives = nums.where((n) => n < 0).toList();
+  if (negatives.isNotEmpty) {
+    throw Exception('Negative numbers not allowed: ${negatives.join(',')}');
+  }
+
+  return nums.reduce((a, b) => a + b);
 }
