@@ -10,5 +10,9 @@ void main() {
     test('returns the number itself for single number input', () {
       expect(add('1'), 1);
     });
+
+    test('returns sum for two numbers', () {
+      expect(add('1,2'), 3);
+    });
   });
 }
