@@ -14,5 +14,9 @@ void main() {
     test('returns sum for two numbers', () {
       expect(add('1,2'), 3);
     });
+
+    test('returns sum for multiple numbers', () {
+      expect(add('1,2,3,4'), 10);
+    });
   });
 }
